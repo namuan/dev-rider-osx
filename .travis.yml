@@ -28,8 +28,8 @@ install:
 - python3 -m pip install -r requirements/base.txt
 
 script:
-- make clean package
-- zip "${TRAVIS_BUILD_DIR}"/devrider.zip dist/devrider.app
+- make package
+- cd dist && zip "${TRAVIS_BUILD_DIR}"/devrider.zip -r devrider.app && cd ..
 - echo "Done!"
 
 notifications:
