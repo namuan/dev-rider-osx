@@ -29,8 +29,7 @@ install:
 
 script:
 - make clean package
-- zip devrider.zip dist/devrider.app
-- mv devrider.zip "${TRAVIS_BUILD_DIR}"
+- zip "${TRAVIS_BUILD_DIR}"/devrider.zip dist/devrider.app
 - echo "Done!"
 
 notifications:
