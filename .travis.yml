@@ -29,7 +29,8 @@ install:
 
 script:
 - make clean package
-- mv dist/devrider.app "${TRAVIS_BUILD_DIR}"
+- zip devrider.zip dist/devrider.app
+- mv devrider.zip "${TRAVIS_BUILD_DIR}"
 - echo "Done!"
 
 notifications:
@@ -44,7 +45,7 @@ before_deploy:
 deploy:
   provider: releases
   api-key: "${GITHUB_TOKEN}"
-  file: "${TRAVIS_BUILD_DIR}/devrider.app"
+  file: "${TRAVIS_BUILD_DIR}/devrider.zip"
   overwrite: true
   skip_cleanup: true
   on:
