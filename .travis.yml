@@ -11,7 +11,7 @@ branches:
 
 env:
   global:
-  - BUILD_VERSION="0.1.0"
+  - BUILD_VERSION="0.2.0"
 
 before_install:
 - brew install python3
@@ -29,7 +29,7 @@ install:
 
 script:
 - make package
-- cd dist && zip "${TRAVIS_BUILD_DIR}"/devrider.zip -r devrider.app && cd ..
+- cd dist && zip "${TRAVIS_BUILD_DIR}"/devrider-${BUILD_VERSION}.zip -r devrider.app && cd ..
 - echo "Done!"
 
 notifications:
@@ -44,7 +44,7 @@ before_deploy:
 deploy:
   provider: releases
   api-key: "${GITHUB_TOKEN}"
-  file: "${TRAVIS_BUILD_DIR}/devrider.zip"
+  file: "${TRAVIS_BUILD_DIR}/devrider-${BUILD_VERSION}.zip"
   overwrite: true
   skip_cleanup: true
   on:
